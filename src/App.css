@@ -1,0 +1,73 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~bootswatch/cyborg/bootstrap.css";
+
+body{
+    color:white;
+    font-family:'Source Code Pro';
+}
+
+.prompt{
+    font-weight:bold;
+}
+
+.terminal.active .cursor-character{
+    border-bottom: 1px solid black;
+}
+
+@keyframes blink { 
+   50% { border-color: white } 
+}
+.cursor-character{ /*or other element you want*/
+    animation: blink .5s step-end infinite alternate;
+}
+
+.terminal .modal-header{
+    cursor:move;
+}
+
+.terminal .modal-footer{
+    text-align:left;
+}
+
+.console-wrapper{
+    height:100px;
+    position:relative;
+    overflow: hidden;
+}
+
+.console{
+    position: absolute;
+    bottom:0px;
+    left:0px;
+}
+
+.terminal{
+    opacity:0.5;
+}
+
+.terminal.active{
+    opacity: 1;
+    z-index:9999;
+}
+
+.terminal {
+    top:auto;
+    bottom:auto;
+    left:auto;
+    right:auto;
+}
+
+.open-terminal-button{
+    background-color:black;
+    border:none;
+    position: absolute;
+    bottom:0px;
+    right:0px;
+    width:200px;
+    margin:40px;
+    outline:none!important;
+}
+
+.open-terminal-button img{
+    width:100%;
+}

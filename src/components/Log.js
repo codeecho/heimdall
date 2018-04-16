@@ -1,33 +1,28 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-export default class Log extends React.Component{
+import logger from '../utils/logger';
+
+export default class Log extends Component{
+    
     constructor(props){
         super(props);
-        this.props.controller.setView(this);
+        
         this.state = {
             messages: []
-        }
+        }       
     }
-
-    update(messages){
-        this.setState({
-            messages
-        });
+    
+    componentDidMount(){
+        logger.addListener(messages => this.setState({messages}));
     }
-
+    
     render(){
         return (
-            <div id="log">
-                {this.state.messages.map((message) => <LogMessage message={message}/>)}
+            <div className='log-messages'>
+                {this.state.messages.map((message, i) => <div key={i} className={`log-message ${message.level}`}>{message.message}</div>)}
             </div>
         );
     }
-}
-
-const LogMessage = ({message}) => {
-    const classes = 'log-message log-level-' + message.level;
-    const level = message.level.toUpperCase()
-    return (
-        <p class={classes}>[{level}]: {message.message}</p>
-    );
+    
+    
 }
