@@ -4,9 +4,11 @@ import {Modal} from 'react-bootstrap';
 
 import Draggable from 'react-draggable';
 
+import FileViewer from '../containers/FileViewer';
+
 export default function Terminal(props){
     
-    const {displayed, active, prompt, cursorIndex, command, output, activate, close} = props;
+    const {displayed, active, connection, path, cursorIndex, command, output, activate, close} = props;
     
     if(!displayed) return null;
     
@@ -19,18 +21,21 @@ export default function Terminal(props){
         <Draggable handle=".modal-header">
               <Modal.Dialog className={`terminal ${active && 'active'}`}>
                 <Modal.Header closeButton onClick={activate} onHide={close}>
+                    <div><span className="connection"> {connection}</span>:{path}</div>
                 </Modal.Header>
             
-                <Modal.Body onClick={activate}></Modal.Body>
+                <Modal.Body onClick={activate}>
+                    <FileViewer connection={connection} path={path}/>
+                </Modal.Body>
             
                 <Modal.Footer onClick={activate}>
                     <div className="console-wrapper">
                         <div className="console">
-                            {output.map(text => <div>{text}</div>)}
+                            {output.map((text, i) => <div key={i}>{text}</div>)}
                         </div>
                     </div>
                     <div className="command-line">
-                        <span className="prompt">{prompt}</span>
+                        <span className="prompt"><span className="connection"> {connection}</span>:{path} $ </span>
                         <span className="command-input">
                             <span className="before-cursor">{beforeCursor}</span>
                             <span className="cursor-character">{cursorCharacter}</span>

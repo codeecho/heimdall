@@ -42,7 +42,7 @@ body{
 }
 
 .terminal{
-    opacity:0.5;
+    opacity:0.8;
 }
 
 .terminal.active{
@@ -70,4 +70,35 @@ body{
 
 .open-terminal-button img{
     width:100%;
+}
+
+.log-messages{
+    position:absolute;   
+    padding:50px;
+    font-size:1.5em;
+    color:lightgreen;
+    bottom:0px;
+    overflow-y:hidden;
+}
+
+.log-message.warning{
+      color:orange;
+}
+
+.log-message.error{
+    color:red;
+}
+
+.file img{
+    width:100%;
+}
+
+.file span{
+    display:inline-block;
+    width:100%;
+    text-align:center;
+}
+
+.modal-body>div{
+    height:415px;
 }

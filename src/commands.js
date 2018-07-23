@@ -10,6 +10,12 @@ const commands = [
     },{
         command: 'clear',
         action: actions.CLEAR_CONSOLE
+    },{
+        command: 'cd',
+        action: actions.CHANGE_DIRECTORY
+    },{
+        command: 'open',
+        action: actions.OPEN_FILE
     }
 ];
 

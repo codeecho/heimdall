@@ -19,7 +19,7 @@ export default class Log extends Component{
     render(){
         return (
             <div className='log-messages'>
-                {this.state.messages.map((message, i) => <div key={i} className={`log-message ${message.level}`}>{message.message}</div>)}
+                {this.state.messages.map((message, i) => <div key={i} className={`log-message ${message.level}`}>{message.level.toUpperCase()}: {message.message}</div>)}
             </div>
         );
     }

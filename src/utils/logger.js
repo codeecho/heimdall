@@ -7,7 +7,10 @@ class Logger{
     
     constructor(){
         this.listeners = [];
-        this.messages = [{level: INFO, message: 'Testing'}];
+        this.messages = [
+            {level: INFO, message: 'Initialising sytem....'},
+            {level: INFO, message: 'System initialised'}                       
+        ];
     }
     
     log(level, message){
